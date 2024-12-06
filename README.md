@@ -116,6 +116,8 @@ Fri Dec  6 13:04:54 UTC 2024 - Test message
 
 5. Предоставить манифесты Deployment в решении, а также скриншоты или вывод команды из п. 4.
 
+[deployment.yml](https://github.com/stepynin-georgy/hw_k8s_6/blob/main/deployment.yml)
+
 ------
 
 ### Задание 2
@@ -196,6 +198,8 @@ total 5376
 ```
 
 4. Предоставить манифесты Deployment, а также скриншоты или вывод команды из п. 2.
+
+[daemonset.yml](https://github.com/stepynin-georgy/hw_k8s_6/blob/main/daemonset.yml)
 
 ------
 
