@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: volume-hw1
+spec:
+  selector:
+    matchLabels:
+      app: volume-hw1
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: volume-hw1
+    spec:
+      containers:
+      - name: busybox
+        image: busybox:1.28
+        command: ['sh', '-c', 'mkdir -p /volumes && while true; do echo "$(date) - Test message" >> /volumes/success.txt; sleep 5; done']
+        volumeMounts:
+        - name: volume
+          mountPath: /volumes
+      - name: multitool
+        image: wbitt/network-multitool
+        command: ['sh', '-c', 'tail -f /volumes/success.txt']
+        volumeMounts:
+        - name: volume
+          mountPath: /volumes
+      volumes:
+      - name: volume
+        emptyDir: {}
